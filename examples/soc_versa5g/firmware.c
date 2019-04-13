@@ -19,7 +19,7 @@ void print(const char *p)
 }
 
 void delay() {
-    for (volatile int i = 0; i < 250000; i++)
+    for (volatile int i = 0; i < 10; i++)
         ;
 }
 
@@ -28,6 +28,8 @@ int main() {
     reg_uart_clkdiv = 5208;
     while (1) {
         LED = 0xFF;
+	reg_uart_data = 'a';
+	reg_uart_data = 'b';
         print("hello world\n");
         delay();
         LED = 0x00;
